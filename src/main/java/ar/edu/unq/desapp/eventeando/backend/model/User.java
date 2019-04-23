@@ -1,15 +1,19 @@
 package ar.edu.unq.desapp.eventeando.backend.model;
 
+import org.joda.time.DateTime;
+
 public class User {
 
 	private String name;
 	private String surname;
 	private String email;
+	private DateTime birthdate;
 
-	public User(String name, String surname, String email) {
+	public User(String name, String surname, String userEmail, DateTime userBirthdate) {
 		this.setName(name);
 		this.setSurname(surname);
-		this.setEmail(email);
+		this.setEmail(userEmail);
+		this.setBirthdate(userBirthdate);
 	}
 	
 	
@@ -37,5 +41,15 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+
+	public DateTime getBirthdate() {
+		return birthdate;
+	}
+
+
+	public void setBirthdate(DateTime userBirthdate) {
+		this.birthdate = userBirthdate;
 	}
 }
