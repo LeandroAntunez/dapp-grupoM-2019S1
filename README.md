@@ -42,16 +42,14 @@ Con eventeando se podrán organizar tres tipos de eventos, los cuales se describ
 
 *   **Fiesta (Party):** En este caso se envían invitaciones a través de la aplicación y por cada confirmación
 de asistencia, la aplicación va calculando la cantidad de mercaderías a comprar.
-En este tipo de eventos no se distribuyen los gastos del mismo sino que corren por cuenta del
-organizador. Al momento de crear el evento, el organizador no sólo ingresa una lista de usuarios a los cuales invitar, sino también hasta cuanto tiempo antes se admiten confirmaciones.
+En este tipo de eventos no se distribuyen los gastos del mismo sino que corren por cuenta del organizador. Al momento de crear el evento, el organizador no sólo ingresa una lista de usuarios a los cuales invitar, sino también hasta cuanto tiempo antes se admiten confirmaciones.
 *   **Baquita (WhipRound):** En este caso se determina el evento a realizar y sus gastos (comida, alquiler de
 salon, etc) y a partir de la cantidad de asistentes la aplicación determina cuánto debe pagar
 cada uno de ellos.
 La baquita puede tener dos modalidades. En la **primera (FirstBuyThenDivide)**, una o más personas realizan las compras,
 informan lo gastado y luego se divide con los demás asistentes al evento.
 En la **segunda (FirstCalculateThenCollect)**, la aplicación calcula un costo estimado total para el evento (se puede valer de
-información propia o ingresada por los usuarios), crea una cuenta común a la cual deberán
-girar su parte los asistentes y una vez reunido el dinero, el organizador puede disponer de los mismos para las compras.
+información propia o ingresada por los usuarios), crea una cuenta común a la cual deberán girar su parte los asistentes y una vez reunido el dinero, el organizador puede disponer de los mismos para las compras.
 *   **Canasta (Basket):** Este es un tipo de evento similar a la baquita, pero la diferencia radica en que en
 lugar de dividir los gastos en cuotas iguales a pagar por los asistentes, se presenta la lista de
 gastos a realizar y, al mejor estilo scrum meeting, cada asistente elige un ítem del cual
