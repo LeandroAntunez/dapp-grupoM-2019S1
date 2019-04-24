@@ -1,4 +1,5 @@
 # Trabajo Práctico: Eventeando
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/eb945db1bbed4adfb44e323e30556bee)](https://app.codacy.com/app/LeandroAntunez/dapp-grupoM-2019S1?utm_source=github.com&utm_medium=referral&utm_content=LeandroAntunez/dapp-grupoM-2019S1&utm_campaign=Badge_Grade_Settings)
 [![Build Status](https://travis-ci.com/LeandroAntunez/dapp-grupoM-2019S1.svg?branch=master)](https://travis-ci.com/LeandroAntunez/dapp-grupoM-2019S1)
 [![Code Coverage](https://codecov.io/gh/LeandroAntunez/dapp-grupoM-2019S1/coverage.svg)](https://codecov.io/gh/LeandroAntunez/dapp-grupoM-2019S1)
 Materia: [Desarrollo de Aplicaciones](https://sites.google.com/site/unqdesarrollodeaplicaciones).
