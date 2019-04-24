@@ -1,4 +1,6 @@
 # Trabajo Práctico: Eventeando
+[![Build Status](https://travis-ci.com/LeandroAntunez/dapp-grupoM-2019S1.svg?branch=master)](https://travis-ci.com/LeandroAntunez/dapp-grupoM-2019S1)
+[![Code Coverage](https://codecov.io/gh/LeandroAntunez/dapp-grupoM-2019S1/coverage.svg)](https://codecov.io/gh/LeandroAntunez/dapp-grupoM-2019S1)
 Materia: [Desarrollo de Aplicaciones](https://sites.google.com/site/unqdesarrollodeaplicaciones).
 
 Universidad Nacional de Quilmes.
