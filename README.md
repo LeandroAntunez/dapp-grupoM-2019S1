@@ -33,6 +33,7 @@ que permita a los usuarios ingresar dinero a través de distintos medios, solici
 prestar dinero a sus amigos, por ejemplo.
 
 ## Eventos (Event)
+#### Tipos de Eventos
 Con eventeando se podrán organizar tres tipos de eventos, los cuales se describen a continuación:
 
 * **Fiesta (Party):** En este caso se envían invitaciones a través de la aplicación y por cada confirmación
@@ -54,6 +55,10 @@ mismos para las compras.
 lugar de dividir los gastos en cuotas iguales a pagar por los asistentes, se presenta la lista de
 gastos a realizar y, al mejor estilo scrum meeting, cada asistente elige un ítem del cual
 hacerse cargo.
+
+#### Invitaciones
+Las invitaciones a eventos se realizarán enviando correos electrónicos a los participantes, los cuales
+deberán registrarse en la aplicación para poder tomar parte del evento en cuestión.
 
 ## Templates
 Adicionalmente, para cada tipo de evento la aplicación debe permitir configurar *templates*, los cuales
@@ -77,9 +82,6 @@ necesaria la siguiente información:
 5. Fecha de Nacimiento : DD/MM/AAAA - Requerido
 #### Autenticación
 También será necesario ofrecer un sistema de autenticación mediante *auth0* con cuentas de *Gmail*.
-#### Invitaciones
-Las invitaciones a eventos se realizarán enviando correos electrónicos a los participantes, los cuales
-deberán registrarse en la aplicación para poder tomar parte del evento en cuestión.
 
 ## Transacciones
 La aplicación debe llevar el control de los movimientos realizados por el usuario con el objetivo de poder
