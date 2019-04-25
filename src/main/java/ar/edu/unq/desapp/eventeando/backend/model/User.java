@@ -19,37 +19,35 @@ public class User {
 	
 	// GETTERS & SETTERS
 
-	public String getName() {
+	String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
+	private void setName(String name) {
 		this.name = name;
 	}
 
-	public String getSurname() {
+	String getSurname() {
 		return surname;
 	}
 
-	public void setSurname(String surname) {
+	private void setSurname(String surname) {
 		this.surname = surname;
 	}
 
-	public String getEmail() {
+	String getEmail() {
 		return email;
 	}
 
-	public void setEmail(String email) {
+	private void setEmail(String email) {
 		this.email = email;
 	}
 
-
-	public DateTime getBirthdate() {
+	DateTime getBirthdate() {
 		return birthdate;
 	}
 
-
-	public void setBirthdate(DateTime userBirthdate) {
+	private void setBirthdate(DateTime userBirthdate) {
 		this.birthdate = userBirthdate;
 	}
 }

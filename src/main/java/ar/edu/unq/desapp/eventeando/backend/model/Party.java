@@ -13,11 +13,11 @@ public class Party extends Event {
         this.setConfirmationDate(confirmationDate);
     }
 
-    public void setConfirmationDate(DateTime confirmationDate) {
+    private void setConfirmationDate(DateTime confirmationDate) {
         this.confirmationDate = confirmationDate;
     }
 
-    public DateTime getConfirmationDate() {
+    DateTime getConfirmationDate() {
         return confirmationDate;
     }
 }

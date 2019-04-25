@@ -16,23 +16,23 @@ public class Event {
 
     // Getters && Setters
 
-    public void setHost(User host) {
+    private void setHost(User host) {
         this.host = host;
     }
 
-    public User getHost() { return host; }
+    User getHost() { return host; }
 
-    public void setGuestList(List<User> guestList) { this.guestList = guestList; }
+    private void setGuestList(List<User> guestList) { this.guestList = guestList; }
 
-    public List<User> getGuestList() { return guestList; }
+    List<User> getGuestList() { return guestList; }
 
-    public void setAttendees(List<User> attendees) {
+    private void setAttendees(List<User> attendees) {
         this.attendees = attendees;
     }
 
-    public List<User> getAttendees() {
+    List<User> getAttendees() {
         return attendees;
     }
 
-    public void inviteGuest(User guest) { this.guestList.add(guest); }
+    void inviteGuest(User guest) { this.guestList.add(guest); }
 }
