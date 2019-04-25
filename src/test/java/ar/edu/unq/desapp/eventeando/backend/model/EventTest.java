@@ -17,6 +17,7 @@ public class EventTest {
 	private User guest;
 	private List<User> guestList;
 	private List<User> attendees;
+	private Product product;
 
 	@Before
 	public void setUp(){
@@ -24,6 +25,7 @@ public class EventTest {
 		guest = mock(User.class);
 		guestList = new ArrayList<User>();
 		attendees = new ArrayList<User>();
+		product = mock(Product.class);
 	}
 
 	@After
@@ -71,6 +73,13 @@ public class EventTest {
     public void createdEventHasAProductsList(){
 	    event = new Event(host, guestList);
 	    Assert.assertTrue(event.getProducts().isEmpty());
+    }
+
+    @Test
+    public void createdEventAddProduct(){
+	    event = new Event(host, guestList);
+	    event.addProduct(product);
+	    Assert.assertTrue(event.getProducts().contains(product));
     }
 
 }
