@@ -1,5 +1,6 @@
 package ar.edu.unq.desapp.eventeando.backend.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Event {
@@ -8,10 +9,10 @@ public class Event {
     private List<User> guestList;
     private List<User> attendees;
 
-    public Event(User host, List<User> guestList, List<User> attendees) {
+    public Event(User host, List<User> guestList) {
         this.setHost(host);
         this.setGuestList(guestList);
-        this.setAttendees(attendees);
+        this.setAttendees(new ArrayList<User>());
     }
 
     // Getters && Setters

@@ -33,27 +33,27 @@ public class EventTest {
 
 	@Test
 	public void createdEventHasHost() {
-		event = new Event(host, guestList, attendees);
+		event = new Event(host, guestList);
 		Assert.assertEquals(event.getHost(), host);
 	}
 
 	@Test
 	public void createdEventHasGuest() {
 		guestList.add(guest);
-		event = new Event(host, guestList, attendees);
+		event = new Event(host, guestList);
 		Assert.assertEquals(guestList, event.getGuestList());
 	}
 
 	@Test
 	public void createdEventHasAttendees(){
 		guestList.add(guest);
-		event = new Event(host, guestList, attendees);
+		event = new Event(host, guestList);
 		Assert.assertEquals(attendees, event.getAttendees());
 	}
 
 	@Test
     public void createdEventInviteAGuest(){
-	    event = new Event(host, guestList, attendees);
+	    event = new Event(host, guestList);
 	    Assert.assertFalse(event.getGuestList().contains(guest));
 	    event.inviteGuest(guest);
 	    Assert.assertTrue(event.getGuestList().contains(guest));
