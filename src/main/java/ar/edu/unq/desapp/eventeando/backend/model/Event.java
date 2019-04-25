@@ -20,17 +20,11 @@ public class Event {
         this.host = host;
     }
 
-    public User getHost() {
-        return host;
-    }
+    public User getHost() { return host; }
 
-    public void setGuestList(List<User> guestList) {
-        this.guestList = guestList;
-    }
+    public void setGuestList(List<User> guestList) { this.guestList = guestList; }
 
-    public List<User> getGuestList() {
-        return guestList;
-    }
+    public List<User> getGuestList() { return guestList; }
 
     public void setAttendees(List<User> attendees) {
         this.attendees = attendees;
@@ -39,4 +33,6 @@ public class Event {
     public List<User> getAttendees() {
         return attendees;
     }
+
+    public void inviteGuest(User guest) { this.guestList.add(guest); }
 }
