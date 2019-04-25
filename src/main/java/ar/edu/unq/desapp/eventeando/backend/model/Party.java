@@ -17,7 +17,7 @@ public class Party extends Event {
         this.confirmationDate = confirmationDate;
     }
 
-    DateTime getConfirmationDate() {
+    public DateTime getConfirmationDate() {
         return confirmationDate;
     }
 }

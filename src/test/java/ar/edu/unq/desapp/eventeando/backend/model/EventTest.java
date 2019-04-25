@@ -67,4 +67,10 @@ public class EventTest {
 	    Assert.assertTrue(event.getAttendees().contains(guest));
     }
 
+    @Test
+    public void createdEventHasAProductsList(){
+	    event = new Event(host, guestList);
+	    Assert.assertTrue(event.getProducts().isEmpty());
+    }
+
 }

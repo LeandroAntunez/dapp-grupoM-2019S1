@@ -19,7 +19,7 @@ public class User {
 	
 	// GETTERS & SETTERS
 
-	String getName() {
+	public String getName() {
 		return name;
 	}
 
@@ -27,7 +27,7 @@ public class User {
 		this.name = name;
 	}
 
-	String getSurname() {
+	public String getSurname() {
 		return surname;
 	}
 
@@ -35,7 +35,7 @@ public class User {
 		this.surname = surname;
 	}
 
-	String getEmail() {
+	public String getEmail() {
 		return email;
 	}
 
@@ -43,9 +43,7 @@ public class User {
 		this.email = email;
 	}
 
-	DateTime getBirthdate() {
-		return birthdate;
-	}
+	public DateTime getBirthdate() { return birthdate; }
 
 	private void setBirthdate(DateTime userBirthdate) {
 		this.birthdate = userBirthdate;
