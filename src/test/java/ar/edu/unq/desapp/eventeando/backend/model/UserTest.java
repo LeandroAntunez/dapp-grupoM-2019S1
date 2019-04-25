@@ -29,7 +29,7 @@ public class UserTest {
 	
 	@Test
 	public void userCreatedHaveBirthdate() {
-		DateTime userBirthdate = new DateTime(1990-01-01);
+		DateTime userBirthdate = new DateTime(1990- 1 - 1);
 		User newUser = new User("", "", "", userBirthdate);
 		Assert.assertEquals(newUser.getBirthdate(), userBirthdate);
 	}

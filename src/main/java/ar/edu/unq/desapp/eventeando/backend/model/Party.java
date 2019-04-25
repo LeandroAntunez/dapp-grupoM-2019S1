@@ -1,0 +1,23 @@
+package ar.edu.unq.desapp.eventeando.backend.model;
+
+import org.joda.time.DateTime;
+
+import java.util.List;
+
+public class Party extends Event {
+
+    private DateTime confirmationDate;
+
+    public Party(User host, List<User> guestList, DateTime confirmationDate) {
+        super(host, guestList);
+        this.setConfirmationDate(confirmationDate);
+    }
+
+    public void setConfirmationDate(DateTime confirmationDate) {
+        this.confirmationDate = confirmationDate;
+    }
+
+    public DateTime getConfirmationDate() {
+        return confirmationDate;
+    }
+}
