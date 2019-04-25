@@ -1,5 +1,7 @@
 package ar.edu.unq.desapp.eventeando.backend.model;
 
+import org.joda.money.Money;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,12 +11,14 @@ public class Event {
     private List<User> guestList;
     private List<User> attendees;
     private List<Product> products;
+    private Money amount;
 
     public Event(User host, List<User> guestList) {
         this.setHost(host);
         this.setGuestList(guestList);
         this.setAttendees(new ArrayList<User>());
         this.setProducts(new ArrayList<Product>());
+        this.setAmount(Money.parse("ARS 00.00"));
     }
 
     public void addProduct(Product product) {
@@ -63,4 +67,11 @@ public class Event {
         this.products = products;
     }
 
+    public Money getAmount() {
+        return amount;
+    }
+
+    private void setAmount(Money amount) {
+        this.amount = amount;
+    }
 }

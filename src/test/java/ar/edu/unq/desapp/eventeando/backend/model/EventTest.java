@@ -1,5 +1,6 @@
 package ar.edu.unq.desapp.eventeando.backend.model;
 
+import org.joda.money.Money;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -18,6 +19,7 @@ public class EventTest {
 	private List<User> guestList;
 	private List<User> attendees;
 	private Product product;
+	private Money amount;
 
 	@Before
 	public void setUp(){
@@ -26,6 +28,7 @@ public class EventTest {
 		guestList = new ArrayList<User>();
 		attendees = new ArrayList<User>();
 		product = mock(Product.class);
+		amount = Money.parse("ARS 00.00");
 	}
 
 	@After
@@ -81,5 +84,11 @@ public class EventTest {
 	    event.addProduct(product);
 	    Assert.assertTrue(event.getProducts().contains(product));
     }
+
+    @Test
+	public void createdEventHasAmount(){
+		event = new Event(host, guestList);
+		Assert.assertEquals(amount, event.getAmount());
+	}
 
 }
