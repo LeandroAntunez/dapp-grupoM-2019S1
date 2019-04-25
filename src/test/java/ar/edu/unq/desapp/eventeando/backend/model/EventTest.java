@@ -59,4 +59,12 @@ public class EventTest {
 	    Assert.assertTrue(event.getGuestList().contains(guest));
     }
 
+    @Test
+    public void createdEventHasAGuestAttendanceConfirmation(){
+	    guestList.add(guest);
+	    event = new Event(host, guestList);
+	    event.confirmAttendance(guest);
+	    Assert.assertTrue(event.getAttendees().contains(guest));
+    }
+
 }

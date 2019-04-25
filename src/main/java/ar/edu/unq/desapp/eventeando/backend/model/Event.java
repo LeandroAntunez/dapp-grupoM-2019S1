@@ -36,4 +36,6 @@ public class Event {
     }
 
     void inviteGuest(User guest) { this.guestList.add(guest); }
+
+    void confirmAttendance(User guest) { this.getAttendees().add(guest); }
 }
