@@ -8,8 +8,8 @@ public class Party extends Event {
 
     private DateTime confirmationDate;
 
-    public Party(User host, List<User> guestList, DateTime confirmationDate) {
-        super(host, guestList);
+    public Party(User host, List<User> guestList, List<User> attendees, DateTime confirmationDate) {
+        super(host, guestList, attendees);
         this.setConfirmationDate(confirmationDate);
     }
 

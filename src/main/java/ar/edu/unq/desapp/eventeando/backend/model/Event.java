@@ -6,10 +6,12 @@ public class Event {
 
     private User host;
     private List<User> guestList;
+    private List<User> attendees;
 
-    public Event(User host, List<User> guestList) {
+    public Event(User host, List<User> guestList, List<User> attendees) {
         this.setHost(host);
         this.setGuestList(guestList);
+        this.setAttendees(attendees);
     }
 
     // Getters && Setters
@@ -28,5 +30,13 @@ public class Event {
 
     public List<User> getGuestList() {
         return guestList;
+    }
+
+    public void setAttendees(List<User> attendees) {
+        this.attendees = attendees;
+    }
+
+    public List<User> getAttendees() {
+        return attendees;
     }
 }

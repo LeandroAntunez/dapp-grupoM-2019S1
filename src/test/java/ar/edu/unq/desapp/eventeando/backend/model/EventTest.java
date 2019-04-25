@@ -16,12 +16,14 @@ public class EventTest {
 	private Event event;
 	private User guest;
 	private List<User> guestList;
+	private List<User> attendees;
 
 	@Before
 	public void setUp(){
 		host = mock(User.class);
 		guest = mock(User.class);
 		guestList = new ArrayList<User>();
+		attendees = new ArrayList<User>();
 	}
 
 	@After
@@ -31,15 +33,22 @@ public class EventTest {
 
 	@Test
 	public void createdEventHasHost() {
-		event = new Event(host, guestList);
+		event = new Event(host, guestList, attendees);
 		Assert.assertEquals(event.getHost(), host);
 	}
 
 	@Test
 	public void createdEventHasGuest() {
 		guestList.add(guest);
-		event = new Event(host, guestList);
+		event = new Event(host, guestList, attendees);
 		Assert.assertEquals(guestList, event.getGuestList());
+	}
+
+	@Test
+	public void createdEventHasAttendees(){
+		guestList.add(guest);
+		event = new Event(host, guestList, attendees);
+		Assert.assertEquals(attendees, event.getAttendees());
 	}
 
 }
