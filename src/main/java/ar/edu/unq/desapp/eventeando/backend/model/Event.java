@@ -33,6 +33,10 @@ public class Event {
         this.getAttendees().add(guest);
     }
 
+    public void addAmount(Money amountOfTenArgentinePesos) {
+        this.setAmount(this.amount.plus(amountOfTenArgentinePesos));
+    }
+
     // Getters && Setters
 
     private void setHost(User host) {
@@ -74,4 +78,5 @@ public class Event {
     private void setAmount(Money amount) {
         this.amount = amount;
     }
+
 }

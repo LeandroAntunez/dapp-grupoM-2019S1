@@ -19,7 +19,8 @@ public class EventTest {
 	private List<User> guestList;
 	private List<User> attendees;
 	private Product product;
-	private Money amount;
+	private Money amountOfZero;
+	private Money amountOfTenArgentinePesos;
 
 	@Before
 	public void setUp(){
@@ -28,7 +29,8 @@ public class EventTest {
 		guestList = new ArrayList<User>();
 		attendees = new ArrayList<User>();
 		product = mock(Product.class);
-		amount = Money.parse("ARS 00.00");
+		amountOfZero = Money.parse("ARS 00.00");
+		amountOfTenArgentinePesos = Money.parse("ARS 10.00");
 	}
 
 	@After
@@ -88,7 +90,14 @@ public class EventTest {
     @Test
 	public void createdEventHasAmount(){
 		event = new Event(host, guestList);
-		Assert.assertEquals(amount, event.getAmount());
+		Assert.assertEquals(amountOfZero, event.getAmount());
+	}
+
+	@Test
+	public void createdEventCanAddAmount(){
+		event = new Event(host, guestList);
+		event.addAmount(amountOfTenArgentinePesos);
+		Assert.assertEquals(event.getAmount(), amountOfTenArgentinePesos);
 	}
 
 }
