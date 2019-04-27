@@ -23,6 +23,7 @@ public class Event {
 
     public void addProduct(Product product) {
         this.products.add(product);
+        this.addAmount(product.getPrice());
     }
 
     public void inviteGuest(User guest) {

@@ -28,9 +28,9 @@ public class EventTest {
 		guest = mock(User.class);
 		guestList = new ArrayList<User>();
 		attendees = new ArrayList<User>();
-		product = mock(Product.class);
 		amountOfZero = Money.parse("ARS 00.00");
 		amountOfTenArgentinePesos = Money.parse("ARS 10.00");
+		product = new Product("Alfajor Fulbito", amountOfTenArgentinePesos);
 	}
 
 	@After
@@ -98,6 +98,13 @@ public class EventTest {
 		event = new Event(host, guestList);
 		event.addAmount(amountOfTenArgentinePesos);
 		Assert.assertEquals(event.getAmount(), amountOfTenArgentinePesos);
+	}
+
+	@Test
+	public void createdEventAddProductAndHisRespectiveCostIsAmountedTest(){
+		event = new Event(host, guestList);
+		event.addProduct(product);
+		Assert.assertEquals(product.getPrice(), event.getAmount());
 	}
 
 }
