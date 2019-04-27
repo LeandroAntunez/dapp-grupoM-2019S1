@@ -1,5 +1,6 @@
-package ar.edu.unq.desapp.eventeando.backend.model;
+package ar.edu.unq.desapp.eventeando.backend.model.event;
 
+import ar.edu.unq.desapp.eventeando.backend.model.User;
 import ar.edu.unq.desapp.eventeando.backend.model.product.Product;
 import org.joda.money.Money;
 
