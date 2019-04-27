@@ -5,6 +5,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import ar.edu.unq.desapp.eventeando.backend.model.event.Party;
+
 import java.util.ArrayList;
 import java.util.List;
 

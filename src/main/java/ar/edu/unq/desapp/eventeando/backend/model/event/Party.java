@@ -1,6 +1,8 @@
-package ar.edu.unq.desapp.eventeando.backend.model;
+package ar.edu.unq.desapp.eventeando.backend.model.event;
 
 import org.joda.time.DateTime;
+
+import ar.edu.unq.desapp.eventeando.backend.model.User;
 
 import java.util.List;
 
