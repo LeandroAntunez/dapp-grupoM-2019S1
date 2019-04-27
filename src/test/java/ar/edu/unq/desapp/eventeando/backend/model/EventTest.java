@@ -39,27 +39,27 @@ public class EventTest {
 	}
 
 	@Test
-	public void createdEventHasHost() {
+	public void createdEventHasHostTest() {
 		event = new Event(host, guestList);
 		Assert.assertEquals(event.getHost(), host);
 	}
 
 	@Test
-	public void createdEventHasGuest() {
+	public void createdEventHasGuestTest() {
 		guestList.add(guest);
 		event = new Event(host, guestList);
 		Assert.assertEquals(guestList, event.getGuestList());
 	}
 
 	@Test
-	public void createdEventHasAttendees(){
+	public void createdEventHasAttendeesTest(){
 		guestList.add(guest);
 		event = new Event(host, guestList);
 		Assert.assertEquals(attendees, event.getAttendees());
 	}
 
 	@Test
-    public void createdEventInviteAGuest(){
+    public void createdEventInviteAGuestTest(){
 	    event = new Event(host, guestList);
 	    Assert.assertFalse(event.getGuestList().contains(guest));
 	    event.inviteGuest(guest);
@@ -67,7 +67,7 @@ public class EventTest {
     }
 
     @Test
-    public void createdEventHasAGuestAttendanceConfirmation(){
+    public void createdEventHasAGuestAttendanceConfirmationTest(){
 	    guestList.add(guest);
 	    event = new Event(host, guestList);
 	    event.confirmAttendance(guest);
@@ -75,26 +75,26 @@ public class EventTest {
     }
 
     @Test
-    public void createdEventHasAProductsList(){
+    public void createdEventHasAProductsListTest(){
 	    event = new Event(host, guestList);
 	    Assert.assertTrue(event.getProducts().isEmpty());
     }
 
     @Test
-    public void createdEventAddProduct(){
+    public void createdEventAddProductTest(){
 	    event = new Event(host, guestList);
 	    event.addProduct(product);
 	    Assert.assertTrue(event.getProducts().contains(product));
     }
 
     @Test
-	public void createdEventHasAmount(){
+	public void createdEventHasAmountTest(){
 		event = new Event(host, guestList);
 		Assert.assertEquals(amountOfZero, event.getAmount());
 	}
 
 	@Test
-	public void createdEventCanAddAmount(){
+	public void createdEventCanAddAmountTest(){
 		event = new Event(host, guestList);
 		event.addAmount(amountOfTenArgentinePesos);
 		Assert.assertEquals(event.getAmount(), amountOfTenArgentinePesos);

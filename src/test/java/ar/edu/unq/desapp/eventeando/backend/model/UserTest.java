@@ -14,21 +14,21 @@ public class UserTest {
 	}
 
 	@Test
-	public void userCreatedHaveSurname() {
+	public void userCreatedHaveSurnameTest() {
 		String userSurname = "Smith";
 		User newUser = new User("", userSurname, "", new DateTime());
 		Assert.assertEquals(newUser.getSurname(), userSurname);
 	}
 
 	@Test
-	public void userCreatedHaveEmail(){
+	public void userCreatedHaveEmailTest(){
 		String userEmail = "bob.smith@gmail.com";
 		User newUser = new User("", "", userEmail, new DateTime());
 		Assert.assertEquals(newUser.getEmail(), userEmail);
 	}
 	
 	@Test
-	public void userCreatedHaveBirthdate() {
+	public void userCreatedHaveBirthdateTest() {
 		DateTime userBirthdate = new DateTime(1990- 1 - 1);
 		User newUser = new User("", "", "", userBirthdate);
 		Assert.assertEquals(newUser.getBirthdate(), userBirthdate);

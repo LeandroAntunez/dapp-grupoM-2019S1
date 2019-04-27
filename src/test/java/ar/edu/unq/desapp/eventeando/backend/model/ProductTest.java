@@ -18,13 +18,13 @@ public class ProductTest {
     }
 
     @Test
-    public void createdProductHasName(){
+    public void createdProductHasNameTest(){
         product = new Product(productName, price);
         Assert.assertEquals(productName, product.getName());
     }
 
     @Test
-    public void createdProductHasPrice(){
+    public void createdProductHasPriceTest(){
         product = new Product(productName, price);
         Assert.assertEquals(product.getPrice(), price);
     }

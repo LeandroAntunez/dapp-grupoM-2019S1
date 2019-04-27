@@ -26,7 +26,7 @@ public class PartyTest {
     }
 
     @Test
-    public void partyHasConfirmationDate(){
+    public void partyHasConfirmationDateTest(){
         Party party = new Party(host, guestList, confirmationDate);
         Assert.assertEquals(confirmationDate, party.getConfirmationDate());
     }
