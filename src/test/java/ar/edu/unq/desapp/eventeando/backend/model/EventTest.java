@@ -30,7 +30,8 @@ public class EventTest {
 		attendees = new ArrayList<User>();
 		amountOfZero = Money.parse("ARS 00.00");
 		amountOfTenArgentinePesos = Money.parse("ARS 10.00");
-		product = new Product("Alfajor Fulbito", amountOfTenArgentinePesos);
+		Category foodCategory = Category.FOOD;
+		product = new Product("Alfajor Fulbito", amountOfTenArgentinePesos, foodCategory);
 	}
 
 	@After
@@ -106,5 +107,7 @@ public class EventTest {
 		event.addProduct(product);
 		Assert.assertEquals(product.getPrice(), event.getAmount());
 	}
+
+
 
 }
