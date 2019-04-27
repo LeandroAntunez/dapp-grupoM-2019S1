@@ -8,50 +8,35 @@ import org.junit.Test;
 public class ProductTest {
 
     private Product product;
-    private String productName;
+    private String drinkName;
     private Money price;
-    private Category foodCategory;
-    private Category drinkCategory;
-    private Category miscellaneousCategory;
+    private int foodWeightInMiligrams;
+    private String foodName;
 
     @Before
     public void setUp(){
-        productName = "Water bottle";
+        drinkName = "Water bottle";
         price = Money.parse("ARS 40.00");
-        foodCategory = Category.FOOD;
-        drinkCategory = Category.DRINK;
-        miscellaneousCategory = Category.MISCELLANEOUS;
+        foodWeightInMiligrams = 1000;
+        foodName = "Bread";
     }
 
     @Test
     public void createdProductHasNameTest(){
-        product = new Product(productName, price, foodCategory);
-        Assert.assertEquals(productName, product.getName());
+        product = new Product(drinkName, price);
+        Assert.assertEquals(drinkName, product.getName());
     }
 
     @Test
     public void createdProductHasPriceTest(){
-        product = new Product(productName, price, foodCategory);
+        product = new Product(drinkName, price);
         Assert.assertEquals(product.getPrice(), price);
     }
 
     @Test
-    public void createdProductHasFoodCategoryTest(){
-        product = new Product(productName, price, foodCategory);
-        Assert.assertEquals(foodCategory, product.getCategory());
+    public void createdFoodProductHasWeightInMiligramsTest(){
+        Food food = new Food(foodName, price, foodWeightInMiligrams);
+        Assert.assertEquals(foodWeightInMiligrams, food.getWeightInMiligrams());
     }
-
-    @Test
-    public void createdProductHasDrinkCategoryTest(){
-        product = new Product(productName, price, drinkCategory);
-        Assert.assertEquals(drinkCategory, product.getCategory());
-    }
-
-    @Test
-    public void createdProductHasMiscellaneousCategoryTest(){
-        product = new Product(productName, price, miscellaneousCategory);
-        Assert.assertEquals(miscellaneousCategory, product.getCategory());
-    }
-
 
 }

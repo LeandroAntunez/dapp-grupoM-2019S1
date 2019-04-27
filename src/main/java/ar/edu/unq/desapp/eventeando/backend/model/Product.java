@@ -5,12 +5,10 @@ import org.joda.money.Money;
 public class Product {
     private String name;
     private Money price;
-    private Category category;
 
-    public Product(String productName, Money price, Category category) {
+    public Product(String productName, Money price) {
         this.setName(productName);
         this.setPrice(price);
-        this.setCategory(category);
     }
 
     private void setName(String name) {
@@ -29,11 +27,4 @@ public class Product {
         this.price = price;
     }
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
 }

@@ -30,8 +30,7 @@ public class EventTest {
 		attendees = new ArrayList<User>();
 		amountOfZero = Money.parse("ARS 00.00");
 		amountOfTenArgentinePesos = Money.parse("ARS 10.00");
-		Category foodCategory = Category.FOOD;
-		product = new Product("Alfajor Fulbito", amountOfTenArgentinePesos, foodCategory);
+		product = new Product("Alfajor Fulbito", amountOfTenArgentinePesos);
 	}
 
 	@After
