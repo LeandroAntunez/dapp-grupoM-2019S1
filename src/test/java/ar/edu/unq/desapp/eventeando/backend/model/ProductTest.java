@@ -12,6 +12,7 @@ public class ProductTest {
     private Money price;
     private int foodWeightInMiligrams;
     private String foodName;
+    private int drinkVolumeInMililiters;
 
     @Before
     public void setUp(){
@@ -19,6 +20,7 @@ public class ProductTest {
         price = Money.parse("ARS 40.00");
         foodWeightInMiligrams = 1000;
         foodName = "Bread";
+        drinkVolumeInMililiters = 750;
     }
 
     @Test
@@ -37,6 +39,12 @@ public class ProductTest {
     public void createdFoodProductHasWeightInMiligramsTest(){
         Food food = new Food(foodName, price, foodWeightInMiligrams);
         Assert.assertEquals(foodWeightInMiligrams, food.getWeightInMiligrams());
+    }
+
+    @Test
+    public void createdDrinkProductHasVolumeInMililitersTest(){
+        Drink drink = new Drink(drinkName, price, drinkVolumeInMililiters);
+        Assert.assertEquals(drinkVolumeInMililiters, drink.getVolumeInMililiters());
     }
 
 }
