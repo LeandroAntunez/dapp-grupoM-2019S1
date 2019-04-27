@@ -11,12 +11,14 @@ public class ProductTest {
     private String productName;
     private Money price;
     private Category foodCategory;
+    private Category drinkCategory;
 
     @Before
     public void setUp(){
         productName = "Water bottle";
         price = Money.parse("ARS 40.00");
         foodCategory = Category.FOOD;
+        drinkCategory = Category.DRINK;
     }
 
     @Test
@@ -35,6 +37,12 @@ public class ProductTest {
     public void createdProductHasFoodCategoryTest(){
         product = new Product(productName, price, foodCategory);
         Assert.assertEquals(foodCategory, product.getCategory());
+    }
+
+    @Test
+    public void createdProductHasDrinkCategory(){
+        product = new Product(productName, price, drinkCategory);
+        Assert.assertEquals(drinkCategory, product.getCategory());
     }
 
 
