@@ -16,7 +16,6 @@ public class User {
 		this.setBirthdate(userBirthdate);
 	}
 	
-	
 	// GETTERS & SETTERS
 
 	public String getName() {

@@ -1,5 +1,6 @@
 package ar.edu.unq.desapp.eventeando.backend.model;
 
+import ar.edu.unq.desapp.eventeando.backend.model.product.Product;
 import org.joda.money.Money;
 
 import java.util.ArrayList;

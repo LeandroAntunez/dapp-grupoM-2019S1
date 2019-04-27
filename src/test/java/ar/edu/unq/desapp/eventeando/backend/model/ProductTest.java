@@ -1,5 +1,8 @@
 package ar.edu.unq.desapp.eventeando.backend.model;
 
+import ar.edu.unq.desapp.eventeando.backend.model.product.Drink;
+import ar.edu.unq.desapp.eventeando.backend.model.product.Food;
+import ar.edu.unq.desapp.eventeando.backend.model.product.Product;
 import org.joda.money.Money;
 import org.junit.Assert;
 import org.junit.Before;
