@@ -5,14 +5,16 @@ import java.util.List;
 
 public class WhipRound extends Event{
 
-    private User host;
-    private List<User> guestList;
     private EventCategory eventCategory;
+    private WhipRoundModality modality;
 
-    public WhipRound(User host, List<User> guestList, EventCategory eventCategory) {
+    public WhipRound(User host, List<User> guestList, EventCategory eventCategory, WhipRoundModality modality) {
         super(host, guestList);
         this.setEventCategory(eventCategory);
+        this.setModality(modality);
     }
+
+    // GETTERS & SETTERS
 
     public EventCategory getEventCategory() {
         return eventCategory;
@@ -22,19 +24,11 @@ public class WhipRound extends Event{
         this.eventCategory = eventCategory;
     }
 
-    public List<User> getGuestList() {
-        return guestList;
+    public WhipRoundModality getModality() {
+        return modality;
     }
 
-    private void setGuestList(List<User> guestList) {
-        this.guestList = guestList;
-    }
-
-    public User getHost() {
-        return host;
-    }
-
-    private void setHost(User host) {
-        this.host = host;
+    private void setModality(WhipRoundModality modality) {
+        this.modality = modality;
     }
 }
