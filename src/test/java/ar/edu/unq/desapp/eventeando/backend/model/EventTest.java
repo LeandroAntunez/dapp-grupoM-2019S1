@@ -2,6 +2,7 @@ package ar.edu.unq.desapp.eventeando.backend.model;
 
 import ar.edu.unq.desapp.eventeando.backend.model.event.Event;
 import ar.edu.unq.desapp.eventeando.backend.model.product.Product;
+import ar.edu.unq.desapp.eventeando.backend.model.product.ProductCategory;
 import org.joda.money.Money;
 import org.junit.After;
 import org.junit.Assert;
@@ -28,11 +29,11 @@ public class EventTest {
 	public void setUp(){
 		host = mock(User.class);
 		guest = mock(User.class);
-		guestList = new ArrayList<User>();
-		attendees = new ArrayList<User>();
+		guestList = new ArrayList<>();
+		attendees = new ArrayList<>();
 		amountOfZero = Money.parse("ARS 00.00");
 		amountOfTenArgentinePesos = Money.parse("ARS 10.00");
-		product = new Product("Alfajor Fulbito", amountOfTenArgentinePesos);
+		product = new Product("Alfajor Fulbito", amountOfTenArgentinePesos, ProductCategory.FOOD);
 	}
 
 	@After

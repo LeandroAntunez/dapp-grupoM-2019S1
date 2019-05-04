@@ -1,8 +1,11 @@
 package ar.edu.unq.desapp.eventeando.backend.model.event;
 
-import ar.edu.unq.desapp.eventeando.backend.model.product.Drink;
-import ar.edu.unq.desapp.eventeando.backend.model.product.Food;
+import ar.edu.unq.desapp.eventeando.backend.model.product.Product;
+import ar.edu.unq.desapp.eventeando.backend.model.product.ProductCategory;
 import ar.edu.unq.desapp.eventeando.backend.model.product.ProductFactory;
+import java.util.List;
+import static ar.edu.unq.desapp.eventeando.backend.model.product.ProductCategory.DRINK;
+import static ar.edu.unq.desapp.eventeando.backend.model.product.ProductCategory.FOOD;
 
 public class CateringSupplier {
 
@@ -17,24 +20,20 @@ public class CateringSupplier {
         party.addProduct(productFactory.drinkForOnePerson());
     }
 
+    public boolean thereAreEnoughProductsForEachAttendees(List<Product> productList, int numberOfAttendees) {
+        return this.eachAttendeeHaveEnoughProductOfCategory(productList, numberOfAttendees, DRINK) &&
+                this.eachAttendeeHaveEnoughProductOfCategory(productList, numberOfAttendees, FOOD);
+    }
+
+    private boolean eachAttendeeHaveEnoughProductOfCategory(List<Product> productList, int numberOfAttendees, ProductCategory productCategory) {
+        int numberOfProducts = (int) productList.stream()
+                .filter(p -> p.getProductCategory().equals(productCategory)).count();
+
+        return numberOfAttendees == numberOfProducts;
+    }
+
     private void setProductFactory(ProductFactory productFactory) {
         this.productFactory = productFactory;
     }
 
-    public boolean thereAreEnoughProductsForEachAttendees(Party party) {
-        return this.thereAreEnoughDrinkForEachAttendee(party) &&
-                this.thereAreEnoughFoodForEachAttendee(party);
-    }
-
-    private boolean thereAreEnoughFoodForEachAttendee(Party party) {
-        int numberOfAttendees = party.getAttendees().size();
-        int numberOfFood = (int) party.getProducts().stream().filter(product -> product instanceof Food).count();
-        return numberOfAttendees == numberOfFood;
-    }
-
-    private boolean thereAreEnoughDrinkForEachAttendee(Party party) {
-        int numberOfAttendees = party.getAttendees().size();
-        int numberOfDrinks = (int) party.getProducts().stream().filter(product -> product instanceof Drink).count();
-        return numberOfAttendees == numberOfDrinks;
-    }
 }

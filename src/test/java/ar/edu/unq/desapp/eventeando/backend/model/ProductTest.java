@@ -1,53 +1,45 @@
 package ar.edu.unq.desapp.eventeando.backend.model;
 
-import ar.edu.unq.desapp.eventeando.backend.model.product.Drink;
-import ar.edu.unq.desapp.eventeando.backend.model.product.Food;
 import ar.edu.unq.desapp.eventeando.backend.model.product.Product;
+import ar.edu.unq.desapp.eventeando.backend.model.product.ProductCategory;
 import org.joda.money.Money;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import static ar.edu.unq.desapp.eventeando.backend.model.product.ProductCategory.DRINK;
+
 public class ProductTest {
 
     private Product product;
-    private String drinkName;
+    private String productName;
     private Money price;
-    private int foodWeightInMiligrams;
-    private String foodName;
-    private int drinkVolumeInMililiters;
+    private ProductCategory productCategory;
 
     @Before
     public void setUp(){
-        drinkName = "Water bottle";
+        productCategory = DRINK;
+        productName = "Water bottle";
         price = Money.parse("ARS 40.00");
-        foodWeightInMiligrams = 1000;
-        foodName = "Bread";
-        drinkVolumeInMililiters = 750;
+
     }
 
     @Test
     public void createdProductHasNameTest(){
-        product = new Product(drinkName, price);
-        Assert.assertEquals(drinkName, product.getName());
+        product = new Product(productName, price, productCategory);
+        Assert.assertEquals(productName, product.getName());
     }
 
     @Test
     public void createdProductHasPriceTest(){
-        product = new Product(drinkName, price);
+        product = new Product(productName, price, productCategory);
         Assert.assertEquals(product.getPrice(), price);
     }
 
     @Test
-    public void createdFoodProductHasWeightInMiligramsTest(){
-        Food food = new Food(foodName, price, foodWeightInMiligrams);
-        Assert.assertEquals(foodWeightInMiligrams, food.getWeightInMiligrams());
-    }
-
-    @Test
-    public void createdDrinkProductHasVolumeInMililitersTest(){
-        Drink drink = new Drink(drinkName, price, drinkVolumeInMililiters);
-        Assert.assertEquals(drinkVolumeInMililiters, drink.getVolumeInMililiters());
+    public void createdProductHasProductCategory(){
+        product = new Product(productName, price, productCategory);
+        Assert.assertEquals(product.getProductCategory(), productCategory);
     }
 
 }

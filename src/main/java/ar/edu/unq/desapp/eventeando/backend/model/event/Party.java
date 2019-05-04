@@ -22,7 +22,7 @@ public class Party extends Event {
     }
 
     public boolean thereAreEnoughProductsForEachAttendees() {
-        return this.cateringSupplier.thereAreEnoughProductsForEachAttendees(this);
+        return this.cateringSupplier.thereAreEnoughProductsForEachAttendees(this.getProducts() ,this.getAttendees().size());
     }
 
     // GETTERS & SETTERS
