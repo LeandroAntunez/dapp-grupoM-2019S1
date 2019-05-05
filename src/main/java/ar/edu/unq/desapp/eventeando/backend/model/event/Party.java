@@ -14,6 +14,7 @@ public class Party extends Event {
         super(host, guestList);
         this.setConfirmationDate(confirmationDate);
         this.setCateringSupplier(cateringSupplier);
+        this.getCateringSupplier().updateProductsForEachAttendees(this);
     }
 
     public void confirmAttendance(User guest){

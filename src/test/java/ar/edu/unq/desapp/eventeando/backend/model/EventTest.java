@@ -20,8 +20,7 @@ public class EventTest {
 	private Event event;
 	private User guest;
 	private List<User> guestList;
-	private List<User> attendees;
-	private Product product;
+    private Product product;
 	private Money amountOfZero;
 	private Money amountOfTenArgentinePesos;
 
@@ -30,8 +29,7 @@ public class EventTest {
 		host = mock(User.class);
 		guest = mock(User.class);
 		guestList = new ArrayList<>();
-		attendees = new ArrayList<>();
-		amountOfZero = Money.parse("ARS 00.00");
+        amountOfZero = Money.parse("ARS 00.00");
 		amountOfTenArgentinePesos = Money.parse("ARS 10.00");
 		product = new Product("Alfajor Fulbito", amountOfTenArgentinePesos, ProductCategory.FOOD);
 	}
@@ -52,13 +50,6 @@ public class EventTest {
 		guestList.add(guest);
 		event = new Event(host, guestList);
 		Assert.assertEquals(guestList, event.getGuestList());
-	}
-
-	@Test
-	public void createdEventHasAttendeesTest(){
-		guestList.add(guest);
-		event = new Event(host, guestList);
-		Assert.assertEquals(attendees, event.getAttendees());
 	}
 
 	@Test
@@ -110,6 +101,9 @@ public class EventTest {
 		Assert.assertEquals(product.getPrice(), event.getAmount());
 	}
 
-
-
+	@Test
+    public void createdEventIncludeHostAsAttendee(){
+	    event = new Event(host, guestList);
+	    Assert.assertTrue(event.getAttendees().contains(host));
+    }
 }

@@ -18,9 +18,10 @@ public class Event {
     public Event(User host, List<User> guestList) {
         this.setHost(host);
         this.setGuestList(guestList);
-        this.setAttendees(new ArrayList<User>());
-        this.setProducts(new ArrayList<Product>());
+        this.setAttendees(new ArrayList<>());
+        this.setProducts(new ArrayList<>());
         this.setAmount(Money.parse("ARS 00.00"));
+        this.getAttendees().add(host);
     }
 
     public void addProduct(Product product) {
