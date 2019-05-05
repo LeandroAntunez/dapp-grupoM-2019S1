@@ -84,21 +84,21 @@ public class EventTest {
     @Test
 	public void createdEventHasAmountTest(){
 		event = new Event(host, guestList);
-		Assert.assertEquals(amountOfZero, event.getAmount());
+		Assert.assertEquals(amountOfZero, event.getTotalProductsAmount());
 	}
 
 	@Test
 	public void createdEventCanAddAmountTest(){
 		event = new Event(host, guestList);
 		event.addAmount(amountOfTenArgentinePesos);
-		Assert.assertEquals(event.getAmount(), amountOfTenArgentinePesos);
+		Assert.assertEquals(event.getTotalProductsAmount(), amountOfTenArgentinePesos);
 	}
 
 	@Test
 	public void createdEventAddProductAndHisRespectiveCostIsAmountedTest(){
 		event = new Event(host, guestList);
 		event.addProduct(product);
-		Assert.assertEquals(product.getPrice(), event.getAmount());
+		Assert.assertEquals(product.getPrice(), event.getTotalProductsAmount());
 	}
 
 	@Test

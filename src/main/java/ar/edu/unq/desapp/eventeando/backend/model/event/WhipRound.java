@@ -11,13 +11,13 @@ public class WhipRound extends Event{
 
     private EventCategory eventCategory;
     private WhipRoundModality modality;
-    private Money dividedAmount;
+    private Money dividedProductsAmount;
 
     public WhipRound(User host, List<User> guestList, EventCategory eventCategory, WhipRoundModality modality) {
         super(host, guestList);
         this.setEventCategory(eventCategory);
         this.setModality(modality);
-        this.setDividedAmount(Money.parse("ARS 00.00"));
+        this.setDividedProductsAmount(Money.parse("ARS 00.00"));
     }
 
     public void addProduct(Product product){
@@ -26,7 +26,7 @@ public class WhipRound extends Event{
     }
 
     private void updateDividedAmount() {
-        this.setDividedAmount(this.getAmount().dividedBy(this.getAttendees().size(), RoundingMode.HALF_UP));
+        this.setDividedProductsAmount(this.getTotalProductsAmount().dividedBy(this.getAttendeesSize(), RoundingMode.HALF_UP));
     }
 
     // GETTERS & SETTERS
@@ -47,11 +47,11 @@ public class WhipRound extends Event{
         this.modality = modality;
     }
 
-    public Money getDividedAmount() {
-        return dividedAmount;
+    public Money getDividedProductsAmount() {
+        return dividedProductsAmount;
     }
 
-    private void setDividedAmount(Money dividedAmount) {
-        this.dividedAmount = dividedAmount;
+    private void setDividedProductsAmount(Money dividedProductsAmount) {
+        this.dividedProductsAmount = dividedProductsAmount;
     }
 }

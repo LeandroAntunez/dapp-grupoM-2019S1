@@ -3,14 +3,19 @@ package ar.edu.unq.desapp.eventeando.backend.model;
 import ar.edu.unq.desapp.eventeando.backend.model.event.EventCategory;
 import ar.edu.unq.desapp.eventeando.backend.model.event.WhipRound;
 import ar.edu.unq.desapp.eventeando.backend.model.event.WhipRoundModality;
+import ar.edu.unq.desapp.eventeando.backend.model.product.Product;
+import org.joda.money.Money;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import static ar.edu.unq.desapp.eventeando.backend.model.event.EventCategory.ROASTEDWITHFRIENDS;
 import static ar.edu.unq.desapp.eventeando.backend.model.event.WhipRoundModality.FIRSTBUYTHENDIVIDE;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class WhipRoundTest {
 
@@ -18,6 +23,8 @@ public class WhipRoundTest {
     private List<User> guestList;
     private EventCategory eventCategory;
     private WhipRoundModality firstBuyThenDivide;
+    private User guest;
+    private Product product;
 
     @Before
     public void setUp(){
@@ -25,6 +32,10 @@ public class WhipRoundTest {
         guestList = new ArrayList<>();
         eventCategory = ROASTEDWITHFRIENDS;
         firstBuyThenDivide = FIRSTBUYTHENDIVIDE;
+        guest = mock(User.class);
+        guestList.add(guest);
+        product = mock(Product.class);
+        when(product.getPrice()).thenReturn(Money.parse("ARS 40.00"));
     }
 
     @Test
@@ -42,6 +53,15 @@ public class WhipRoundTest {
     @Test
     public void createdWhipRoundHaveDividedAmount(){
         WhipRound whipRound = new WhipRound(host, guestList, eventCategory, firstBuyThenDivide);
-        Assert.assertEquals(whipRound.getAmount(), whipRound.getDividedAmount());
+        Assert.assertEquals(whipRound.getTotalProductsAmount(), whipRound.getDividedProductsAmount());
+    }
+
+    @Test
+    public void createdWhipRoundWithTwoAttendeesHaveTotalAmountOfAnProductDividedByTwo(){
+        WhipRound whipRound = new WhipRound(host, guestList, eventCategory, firstBuyThenDivide);
+        whipRound.confirmAttendance(guest);
+        whipRound.addProduct(product);
+        Money amountProductDividedByTwo = product.getPrice().dividedBy(whipRound.getAttendeesSize(), RoundingMode.HALF_UP);
+        Assert.assertEquals(amountProductDividedByTwo, whipRound.getDividedProductsAmount());
     }
 }

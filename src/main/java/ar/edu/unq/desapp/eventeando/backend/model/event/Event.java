@@ -13,14 +13,14 @@ public class Event {
     private List<User> guestList;
     private List<User> attendees;
     private List<Product> products;
-    private Money amount;
+    private Money totalProductsAmount;
 
     public Event(User host, List<User> guestList) {
         this.setHost(host);
         this.setGuestList(guestList);
         this.setAttendees(new ArrayList<>());
         this.setProducts(new ArrayList<>());
-        this.setAmount(Money.parse("ARS 00.00"));
+        this.setTotalProductsAmount(Money.parse("ARS 00.00"));
         this.getAttendees().add(host);
     }
 
@@ -38,7 +38,7 @@ public class Event {
     }
 
     public void addAmount(Money amountOfTenArgentinePesos) {
-        this.setAmount(this.amount.plus(amountOfTenArgentinePesos));
+        this.setTotalProductsAmount(this.totalProductsAmount.plus(amountOfTenArgentinePesos));
     }
 
     // Getters && Setters
@@ -75,12 +75,14 @@ public class Event {
         this.products = products;
     }
 
-    public Money getAmount() {
-        return amount;
+    public Money getTotalProductsAmount() {
+        return totalProductsAmount;
     }
 
-    private void setAmount(Money amount) {
-        this.amount = amount;
+    private void setTotalProductsAmount(Money totalProductsAmount) {
+        this.totalProductsAmount = totalProductsAmount;
     }
+
+    public int getAttendeesSize() { return this.getAttendees().size(); }
 
 }
