@@ -38,4 +38,10 @@ public class WhipRoundTest {
         WhipRound whipRound = new WhipRound(host, guestList, eventCategory, firstBuyThenDivide);
         Assert.assertEquals(whipRound.getModality(), firstBuyThenDivide);
     }
+
+    @Test
+    public void createdWhipRoundHaveDividedAmount(){
+        WhipRound whipRound = new WhipRound(host, guestList, eventCategory, firstBuyThenDivide);
+        Assert.assertEquals(whipRound.getAmount(), whipRound.getDividedAmount());
+    }
 }
