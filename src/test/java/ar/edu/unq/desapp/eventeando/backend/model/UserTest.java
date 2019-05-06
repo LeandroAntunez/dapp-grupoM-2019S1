@@ -8,11 +8,13 @@ import org.junit.Test;
 
 public class UserTest {
 
-	public String anUserName;
-	public String anUserSurname;
-	public String anUserEmail;
-	public DateTime anUserBirthday;
+	private String anUserName;
+	private String anUserSurname;
+	private String anUserEmail;
+	private DateTime anUserBirthday;
 	private Money noMoney;
+	private User anUser;
+	private Money tenArgentinePesos;
 
 	@Before
 	public void setUp(){
@@ -21,6 +23,8 @@ public class UserTest {
 		anUserEmail = "john.anderson@gmail.com";
 		anUserBirthday = new DateTime("1985-05-12");
 		noMoney = Money.parse("ARS 00.00");
+		anUser = new User(anUserName, anUserSurname, anUserEmail, anUserBirthday);
+		tenArgentinePesos = Money.parse("ARS 10.00");
 	}
 	
 	@Test
@@ -55,5 +59,12 @@ public class UserTest {
 	public void userCreatedHaveNotCash(){
 		User me = new User(anUserName, anUserSurname, anUserEmail, anUserBirthday);
 		Assert.assertEquals(me.getCash(), noMoney);
+	}
+
+	@Test
+	public void userDepositMoneyWithHisCash(){
+		anUser.depositMoneyWithCash(tenArgentinePesos);
+		Assert.assertEquals(anUser.getCash(), tenArgentinePesos);
+
 	}
 }

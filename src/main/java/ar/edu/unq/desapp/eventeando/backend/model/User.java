@@ -18,6 +18,10 @@ public class User {
 		this.setBirthdate(userBirthdate);
 		this.setCash(Money.parse("ARS 00.00"));
 	}
+
+    public void depositMoneyWithCash(Money anAmount) {
+        this.setCash(this.getCash().plus(anAmount));
+    }
 	
 	// GETTERS & SETTERS
 
@@ -58,4 +62,5 @@ public class User {
 	private void setCash(Money cash) {
 		this.cash = cash;
 	}
+
 }
