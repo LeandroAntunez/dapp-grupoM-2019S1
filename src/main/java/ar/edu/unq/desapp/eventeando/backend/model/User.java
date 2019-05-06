@@ -1,5 +1,6 @@
 package ar.edu.unq.desapp.eventeando.backend.model;
 
+import org.joda.money.Money;
 import org.joda.time.DateTime;
 
 public class User {
@@ -8,12 +9,14 @@ public class User {
 	private String surname;
 	private String email;
 	private DateTime birthdate;
+	private Money cash;
 
 	public User(String name, String surname, String userEmail, DateTime userBirthdate) {
 		this.setName(name);
 		this.setSurname(surname);
 		this.setEmail(userEmail);
 		this.setBirthdate(userBirthdate);
+		this.setCash(Money.parse("ARS 00.00"));
 	}
 	
 	// GETTERS & SETTERS
@@ -46,5 +49,13 @@ public class User {
 
 	private void setBirthdate(DateTime userBirthdate) {
 		this.birthdate = userBirthdate;
+	}
+
+	public Money getCash() {
+		return cash;
+	}
+
+	private void setCash(Money cash) {
+		this.cash = cash;
 	}
 }
