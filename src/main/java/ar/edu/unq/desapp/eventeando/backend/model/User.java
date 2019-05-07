@@ -9,20 +9,25 @@ public class User {
 	private String surname;
 	private String email;
 	private DateTime birthdate;
-	private Money cash;
+	private Money currentBalance;
 
 	public User(String name, String surname, String userEmail, DateTime userBirthdate) {
 		this.setName(name);
 		this.setSurname(surname);
 		this.setEmail(userEmail);
 		this.setBirthdate(userBirthdate);
-		this.setCash(Money.parse("ARS 00.00"));
+		this.setCurrentBalance(Money.parse("ARS 00.00"));
 	}
 
     public void depositMoneyWithCash(Money anAmount) {
-        this.setCash(this.getCash().plus(anAmount));
+        this.setCurrentBalance(this.getCurrentBalance().plus(anAmount));
     }
-	
+
+	public void depositMoneyWithCreditCard(Money anAmount) {
+		this.setCurrentBalance(this.getCurrentBalance().plus(anAmount));
+
+	}
+
 	// GETTERS & SETTERS
 
 	public String getName() {
@@ -55,12 +60,12 @@ public class User {
 		this.birthdate = userBirthdate;
 	}
 
-	public Money getCash() {
-		return cash;
+	public Money getCurrentBalance() {
+		return currentBalance;
 	}
 
-	private void setCash(Money cash) {
-		this.cash = cash;
+	private void setCurrentBalance(Money currentBalance) {
+		this.currentBalance = currentBalance;
 	}
 
 }

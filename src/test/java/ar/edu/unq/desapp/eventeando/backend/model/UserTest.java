@@ -58,13 +58,18 @@ public class UserTest {
 	@Test
 	public void userCreatedHaveNotCash(){
 		User me = new User(anUserName, anUserSurname, anUserEmail, anUserBirthday);
-		Assert.assertEquals(me.getCash(), noMoney);
+		Assert.assertEquals(me.getCurrentBalance(), noMoney);
 	}
 
 	@Test
 	public void userDepositMoneyWithHisCash(){
 		anUser.depositMoneyWithCash(tenArgentinePesos);
-		Assert.assertEquals(anUser.getCash(), tenArgentinePesos);
+		Assert.assertEquals(anUser.getCurrentBalance(), tenArgentinePesos);
+	}
 
+	@Test
+	public void userDepositMoneyWithACreditCard(){
+		anUser.depositMoneyWithCreditCard(tenArgentinePesos);
+		Assert.assertEquals(anUser.getCurrentBalance(), tenArgentinePesos);
 	}
 }
