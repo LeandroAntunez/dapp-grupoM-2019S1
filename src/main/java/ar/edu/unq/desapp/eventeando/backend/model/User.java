@@ -1,73 +1,54 @@
 package ar.edu.unq.desapp.eventeando.backend.model;
 
-import org.joda.money.Money;
-import org.joda.time.DateTime;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
+@AllArgsConstructor // (Lomblok) automatically creates a class construtor with all arguments (properties).
+@NoArgsConstructor // (Lomblok) automatically creates an empty class construtor with all arguments (properties).
+@Entity
+@Table(name = "users")
+@Data // (Lomblok) creates toString, equals, hashCode, getters and setters.
 public class User {
 
+    // FIELDS
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @NotNull
+    @Size(min = 2, message = "First Name should have at least 2 characters")
     private String name;
+
+    @NotNull
+    @Size(min = 2, message = "Surname should have at least 2 characters")
     private String surname;
+
+    @Email
+    @NotNull
+    @Column(unique = true)
     private String email;
-    private DateTime birthdate;
-    private Money currentBalance;
 
-    public User(String name, String surname, String userEmail, DateTime userBirthdate) {
-        this.setName(name);
-        this.setSurname(surname);
-        this.setEmail(userEmail);
-        this.setBirthdate(userBirthdate);
-        this.setCurrentBalance(Money.parse("ARS 00.00"));
+    @NotNull
+    private LocalDate birthdate;
+
+    @NotNull
+    private BigDecimal currentBalance;
+
+    // METHODS
+
+    void depositMoneyWithCash(BigDecimal anAmount) {
+        this.setCurrentBalance(this.getCurrentBalance().add(anAmount));
     }
 
-    public void depositMoneyWithCash(Money anAmount) {
-        this.setCurrentBalance(this.getCurrentBalance().plus(anAmount));
+    void depositMoneyWithCreditCard(BigDecimal anAmount) {
+        this.setCurrentBalance(this.getCurrentBalance().add(anAmount));
     }
-
-    public void depositMoneyWithCreditCard(Money anAmount) {
-        this.setCurrentBalance(this.getCurrentBalance().plus(anAmount));
-
-    }
-
-    // GETTERS & SETTERS
-
-    public String getName() {
-        return name;
-    }
-
-    private void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    private void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    private void setEmail(String email) {
-        this.email = email;
-    }
-
-    public DateTime getBirthdate() {
-        return birthdate;
-    }
-
-    private void setBirthdate(DateTime userBirthdate) {
-        this.birthdate = userBirthdate;
-    }
-
-    public Money getCurrentBalance() {
-        return currentBalance;
-    }
-
-    private void setCurrentBalance(Money currentBalance) {
-        this.currentBalance = currentBalance;
-    }
-
 }
