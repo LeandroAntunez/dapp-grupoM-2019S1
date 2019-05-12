@@ -4,11 +4,10 @@ import ar.edu.unq.desapp.eventeando.backend.model.event.EventCategory;
 import ar.edu.unq.desapp.eventeando.backend.model.event.WhipRound;
 import ar.edu.unq.desapp.eventeando.backend.model.event.WhipRoundModality;
 import ar.edu.unq.desapp.eventeando.backend.model.product.Product;
-import org.joda.money.Money;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
+import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +35,7 @@ public class WhipRoundTest {
         guest = mock(User.class);
         guestList.add(guest);
         product = mock(Product.class);
-        when(product.getPrice()).thenReturn(Money.parse("ARS 40.00"));
+        when(product.getPrice()).thenReturn(new BigDecimal("40.00"));
     }
 
     @Test
@@ -62,7 +61,8 @@ public class WhipRoundTest {
         WhipRound whipRound = new WhipRound(host, guestList, eventCategory, firstBuyThenDivide);
         whipRound.confirmAttendance(guest);
         whipRound.addProduct(product);
-        Money amountProductDividedByTwo = product.getPrice().dividedBy(whipRound.getAttendeesSize(), RoundingMode.HALF_UP);
+        BigDecimal attendeesSizeToBigDecimal = new BigDecimal(whipRound.getAttendeesSize());
+        BigDecimal amountProductDividedByTwo = product.getPrice().divide(attendeesSizeToBigDecimal, 2, RoundingMode.HALF_UP);
         Assert.assertEquals(amountProductDividedByTwo, whipRound.getDividedProductsAmount());
     }
 }

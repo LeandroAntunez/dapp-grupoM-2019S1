@@ -21,7 +21,6 @@ public class PartyTest {
     private DateTime confirmationDate;
     private User guest;
     private CateringSupplier cateringSupplier;
-    private ProductFactory productFactory;
 
     @Before
     public void setUp() {
@@ -30,7 +29,7 @@ public class PartyTest {
         guestList = new ArrayList<>();
         guestList.add(guest);
         confirmationDate = new DateTime(2019 - 5 - 1);
-        productFactory = new ProductFactory();
+        ProductFactory productFactory = new ProductFactory();
         cateringSupplier = new CateringSupplier(productFactory);
     }
 

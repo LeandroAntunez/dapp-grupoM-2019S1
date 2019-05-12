@@ -3,12 +3,12 @@ package ar.edu.unq.desapp.eventeando.backend.model;
 import ar.edu.unq.desapp.eventeando.backend.model.event.Event;
 import ar.edu.unq.desapp.eventeando.backend.model.product.Product;
 import ar.edu.unq.desapp.eventeando.backend.model.product.ProductCategory;
-import org.joda.money.Money;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,17 +21,18 @@ public class EventTest {
     private User guest;
     private List<User> guestList;
     private Product product;
-    private Money amountOfZero;
-    private Money amountOfTenArgentinePesos;
+    private BigDecimal amountOfZero;
+    private BigDecimal amountOfTenArgentinePesos;
 
     @Before
     public void setUp() {
         host = mock(User.class);
         guest = mock(User.class);
         guestList = new ArrayList<>();
-        amountOfZero = Money.parse("ARS 00.00");
-        amountOfTenArgentinePesos = Money.parse("ARS 10.00");
-        product = new Product("Alfajor Fulbito", amountOfTenArgentinePesos, ProductCategory.FOOD);
+        amountOfZero = new BigDecimal("00.00");
+        amountOfTenArgentinePesos = new BigDecimal("10.00");
+        Long productID = 1L;
+        product = new Product(productID, "Alfajor Fulbito", amountOfTenArgentinePesos, ProductCategory.FOOD);
     }
 
     @After

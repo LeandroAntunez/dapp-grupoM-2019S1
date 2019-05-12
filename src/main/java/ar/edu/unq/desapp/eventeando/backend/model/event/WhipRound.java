@@ -2,8 +2,7 @@ package ar.edu.unq.desapp.eventeando.backend.model.event;
 
 import ar.edu.unq.desapp.eventeando.backend.model.User;
 import ar.edu.unq.desapp.eventeando.backend.model.product.Product;
-import org.joda.money.Money;
-
+import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
 
@@ -11,13 +10,13 @@ public class WhipRound extends Event {
 
     private EventCategory eventCategory;
     private WhipRoundModality modality;
-    private Money dividedProductsAmount;
+    private BigDecimal dividedProductsAmount;
 
     public WhipRound(User host, List<User> guestList, EventCategory eventCategory, WhipRoundModality modality) {
         super(host, guestList);
         this.setEventCategory(eventCategory);
         this.setModality(modality);
-        this.setDividedProductsAmount(Money.parse("ARS 00.00"));
+        this.setDividedProductsAmount(new BigDecimal("00.00"));
     }
 
     public void addProduct(Product product) {
@@ -26,7 +25,9 @@ public class WhipRound extends Event {
     }
 
     private void updateDividedAmount() {
-        this.setDividedProductsAmount(this.getTotalProductsAmount().dividedBy(this.getAttendeesSize(), RoundingMode.HALF_UP));
+        BigDecimal attendeesSizeToBigDecimal = new BigDecimal(this.getAttendeesSize());
+        BigDecimal result = this.getTotalProductsAmount().divide(attendeesSizeToBigDecimal, 2, RoundingMode.HALF_UP);
+        this.setDividedProductsAmount(result);
     }
 
     // GETTERS & SETTERS
@@ -47,11 +48,11 @@ public class WhipRound extends Event {
         this.modality = modality;
     }
 
-    public Money getDividedProductsAmount() {
+    public BigDecimal getDividedProductsAmount() {
         return dividedProductsAmount;
     }
 
-    private void setDividedProductsAmount(Money dividedProductsAmount) {
+    private void setDividedProductsAmount(BigDecimal dividedProductsAmount) {
         this.dividedProductsAmount = dividedProductsAmount;
     }
 }

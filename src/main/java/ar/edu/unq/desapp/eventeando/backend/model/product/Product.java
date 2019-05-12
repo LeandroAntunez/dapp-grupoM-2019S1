@@ -1,39 +1,31 @@
 package ar.edu.unq.desapp.eventeando.backend.model.product;
 
-import org.joda.money.Money;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @NotNull
     private String name;
-    private Money price;
+
+    @NotNull
+    private BigDecimal price;
+
+    @NotNull
     private ProductCategory productCategory;
-
-    public Product(String productName, Money price, ProductCategory productCategory) {
-        this.setName(productName);
-        this.setPrice(price);
-        this.setProductCategory(productCategory);
-    }
-
-    private void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Money getPrice() {
-        return price;
-    }
-
-    private void setPrice(Money price) {
-        this.price = price;
-    }
-
-    public ProductCategory getProductCategory() {
-        return productCategory;
-    }
-
-    private void setProductCategory(ProductCategory productCategory) {
-        this.productCategory = productCategory;
-    }
 }

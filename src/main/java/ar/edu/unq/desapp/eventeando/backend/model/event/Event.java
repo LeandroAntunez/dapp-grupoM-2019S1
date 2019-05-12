@@ -2,8 +2,7 @@ package ar.edu.unq.desapp.eventeando.backend.model.event;
 
 import ar.edu.unq.desapp.eventeando.backend.model.User;
 import ar.edu.unq.desapp.eventeando.backend.model.product.Product;
-import org.joda.money.Money;
-
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,14 +12,14 @@ public class Event {
     private List<User> guestList;
     private List<User> attendees;
     private List<Product> products;
-    private Money totalProductsAmount;
+    private BigDecimal totalProductsAmount;
 
     public Event(User host, List<User> guestList) {
         this.setHost(host);
         this.setGuestList(guestList);
         this.setAttendees(new ArrayList<>());
         this.setProducts(new ArrayList<>());
-        this.setTotalProductsAmount(Money.parse("ARS 00.00"));
+        this.setTotalProductsAmount(new BigDecimal("00.00"));
         this.getAttendees().add(host);
     }
 
@@ -37,8 +36,8 @@ public class Event {
         this.getAttendees().add(guest);
     }
 
-    public void addAmount(Money amountOfTenArgentinePesos) {
-        this.setTotalProductsAmount(this.totalProductsAmount.plus(amountOfTenArgentinePesos));
+    public void addAmount(BigDecimal amountOfTenArgentinePesos) {
+        this.setTotalProductsAmount(this.totalProductsAmount.add(amountOfTenArgentinePesos));
     }
 
     // Getters && Setters
@@ -75,11 +74,11 @@ public class Event {
         this.products = products;
     }
 
-    public Money getTotalProductsAmount() {
+    public BigDecimal getTotalProductsAmount() {
         return totalProductsAmount;
     }
 
-    private void setTotalProductsAmount(Money totalProductsAmount) {
+    private void setTotalProductsAmount(BigDecimal totalProductsAmount) {
         this.totalProductsAmount = totalProductsAmount;
     }
 
